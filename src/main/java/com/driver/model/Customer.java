@@ -1,4 +1,3 @@
-
 package com.driver.model;
 
 import javax.persistence.*;
@@ -6,50 +5,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Customer {
+@Table(name = "customer")
+public class Customer{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int customerId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int CustomerId;
 
-    private String mobile;
-    private String password;
+    private String Mobile;
 
-    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
-    List<TripBooking> tripBookingList = new ArrayList<>();
+    private String Password;
+
+    @OneToMany(mappedBy = "customer" , cascade = CascadeType.ALL)
+    private List<TripBooking> tripBookingList = new ArrayList<>();
 
     public Customer() {
     }
 
-    public Customer(int customerId, String mobile, String password, List<TripBooking> tripBookingList) {
-        this.customerId = customerId;
-        this.mobile = mobile;
-        this.password = password;
-        this.tripBookingList = tripBookingList;
-    }
-
     public int getCustomerId() {
-        return customerId;
+        return CustomerId;
     }
 
     public void setCustomerId(int customerId) {
-        this.customerId = customerId;
+        CustomerId = customerId;
     }
 
     public String getMobile() {
-        return mobile;
+        return Mobile;
     }
 
     public void setMobile(String mobile) {
-        this.mobile = mobile;
+        this.Mobile = mobile;
     }
 
     public String getPassword() {
-        return password;
+        return Password;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        Password = password;
     }
 
     public List<TripBooking> getTripBookingList() {
@@ -59,5 +53,4 @@ public class Customer {
     public void setTripBookingList(List<TripBooking> tripBookingList) {
         this.tripBookingList = tripBookingList;
     }
-
 }

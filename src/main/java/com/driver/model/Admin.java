@@ -1,52 +1,45 @@
 package com.driver.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import javax.persistence.*;
 
 @Entity
-public class Admin
-{
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-    private int adminId;
+@Table(name = "admin")
+public class Admin {
 
-  private String username;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int AdminId;
 
-  private String password;
+    private String Username;
 
+    private String Password;
 
     public Admin() {
     }
 
-    public Admin(int adminId, String username, String password) {
-        this.adminId = adminId;
-        this.username = username;
-        this.password = password;
-    }
-
     public int getAdminId() {
-        return adminId;
+        return AdminId;
     }
 
     public void setAdminId(int adminId) {
-        this.adminId = adminId;
+        AdminId = adminId;
     }
 
     public String getUsername() {
-        return username;
+        return Username;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.Username = username;
     }
 
     public String getPassword() {
-        return password;
+        return Password;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.Password = password;
     }
 }

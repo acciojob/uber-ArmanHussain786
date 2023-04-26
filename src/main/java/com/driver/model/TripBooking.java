@@ -3,6 +3,7 @@ package com.driver.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "tripBooking")
 public class TripBooking {
 
     @Id
@@ -10,29 +11,25 @@ public class TripBooking {
     private int tripBookingId;
 
     private String fromLocation;
+
     private String toLocation;
 
-    private int distanceInKm;
-    @Enumerated(EnumType.STRING)
+    private int DistanceInKm;
+
+    @Enumerated(value = EnumType.STRING)
     private TripStatus status;
+
     private int bill;
 
     @ManyToOne
+    @JoinColumn
     private Driver driver;
 
     @ManyToOne
+    @JoinColumn
     private Customer customer;
 
     public TripBooking() {
-    }
-
-    public TripBooking(int tripBookingId, String fromLocation, String toLocation, int distanceInKm, TripStatus status, int bill) {
-        this.tripBookingId = tripBookingId;
-        this.fromLocation = fromLocation;
-        this.toLocation = toLocation;
-        this.distanceInKm = distanceInKm;
-        this.status = status;
-        this.bill = bill;
     }
 
     public int getTripBookingId() {
@@ -60,11 +57,11 @@ public class TripBooking {
     }
 
     public int getDistanceInKm() {
-        return distanceInKm;
+        return DistanceInKm;
     }
 
     public void setDistanceInKm(int distanceInKm) {
-        this.distanceInKm = distanceInKm;
+        DistanceInKm = distanceInKm;
     }
 
     public TripStatus getStatus() {
