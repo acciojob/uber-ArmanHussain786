@@ -1,7 +1,5 @@
 package com.driver.model;
 
-import com.driver.model.Driver;
-
 import javax.persistence.*;
 
 @Entity
@@ -9,7 +7,7 @@ public class Cab {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int Id;
 
     private int perKmRate;
 
@@ -25,17 +23,17 @@ public class Cab {
     }
 
     public Cab(int id, int perKmRate, boolean available) {
-        this.id = id;
+        this.Id = id;
         this.perKmRate = perKmRate;
         this.available = available;
     }
 
     public int getId() {
-        return id;
+        return Id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.Id = id;
     }
 
     public int getPerKmRate() {
